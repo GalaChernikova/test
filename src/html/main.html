@@ -1,0 +1,143 @@
+<style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #F8F8F8;
+        background-image: url('./../images/main_backgr/main_backgr.png');
+        background-repeat: no-repeat;
+        background-position: 0 30px;
+        background-size: 50%;
+
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        width: 0;
+        display: none;
+    }
+
+    .mainSwiper {
+        max-width: 1300px;
+        width: 100%;
+
+        margin-top: 20px;
+        --swiper-theme-color: #303030;
+    }
+
+    @media screen and (max-width: 800px) {
+        .mainSwiper {
+            margin-top: 0;
+            padding-top: 10px !important;
+        }
+    }
+</style>
+
+
+<!-- Swiper -->
+<div class="swiper mainSwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="main-screen">
+                <div class="main-screen__text">
+                    <h3 class="main-screen__text discount-text">Суперскидка до 60%</h3>
+                    <h1 class="main-screen__text diamonds">НА БРИЛЛИАНТЫ</h1>
+
+                    <button class="main-screen__text button">ПОДРОБНЕЕ</button>
+                </div>
+                <div class="main-screen__img">
+                    <img src="./../images/main_ring/main_ring.png" alt="main_ring" class="main-screen__img main-ring"
+                        srcset="./../images/main_ring/main_ring.png 1x,
+                            ./../images/main_ring/main_ring@2x.png 2x,
+                            ./../images/main_ring/main-ring@3x.png 3x,
+                            ">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="main-screen">
+                <div class="main-screen__text">
+                    <h3 class="main-screen__text discount-text">Суперскидка до 60%</h3>
+                    <h1 class="main-screen__text diamonds">НА БРИЛЛИАНТЫ</h1>
+
+                    <button class="main-screen__text button">ПОДРОБНЕЕ</button>
+                </div>
+                <div class="main-screen__img">
+                    <img src="./../images/main_ring/main_ring.png" alt="main_ring" class="main-screen__img main-ring">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="main-screen">
+                <div class="main-screen__text">
+                    <h3 class="main-screen__text discount-text">Суперскидка до 60%</h3>
+                    <h1 class="main-screen__text diamonds">НА БРИЛЛИАНТЫ</h1>
+
+                    <button class="main-screen__text button">ПОДРОБНЕЕ</button>
+                </div>
+                <div class="main-screen__img">
+                    <img src="./../images/main_ring/main_ring.png" alt="main_ring" class="main-screen__img main-ring">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-button-next main-arrow-right">
+        <button class="arrow right">&#8594;</button>
+    </div>
+    <div class="swiper-button-prev main-arrow-left">
+        <button class="arrow left">&#8592;</button>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+<script>
+    var swiper = new Swiper(".mainSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".main-arrow-right",
+            prevEl: ".main-arrow-left",
+        },
+    });
+</script>

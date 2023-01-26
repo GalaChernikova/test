@@ -1,0 +1,134 @@
+body {
+  &.lock {
+    overflow: hidden;
+    touch-action: none;
+    font-family: 'Inter';
+    color: #303030;
+  }
+}
+
+a {
+  color: #303030 !important;
+  text-decoration: none !important;
+}
+
+h2 {
+  font-family: 'Prata';
+  font-size: 40px !important;
+  line-height: 100% !important;
+
+  @media screen and (max-width: 1300px) {
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  @media screen and (max-width: 900px) {
+    font-size: 30px !important;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 25px !important;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 20px !important;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 18px !important;
+  }
+}
+
+// Базовые анимации:
+// @import "keyframes";
+
+// Стили для полноэкранного блока:
+// @import "fullscreen";
+
+// Стили основного ограничивающего контейнера ========================================================================
+/*
+* (i) Стили будут применяться ко 
+* всем классам содержащим *__container
+* Например header__container, main__container и т.д.
+*/
+[class*="__container"] {
+  max-width: rem($containerWidth + $mainOffset * 2);
+  margin: 0 auto;
+  padding: 0 rem($mainOffset);
+}
+
+// Стили отзывчивых картинок (IBG) ===================================================================================
+[class*="-ibg"] {
+  position: relative;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+[class*="-ibg_contain"] {
+  img {
+    object-fit: contain;
+  }
+}
+
+// Стили для обертки модальных окон ==================================================================================
+[class*="_overlay-bg"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: $standartTrans; // Можно задать свою анимацию
+  z-index: 2000; // Увеличить если нужно
+  padding: rem(60) rem(15); // Изменить по макету
+  overflow-y: auto;
+
+  @include media(768) {
+    &::-webkit-scrollbar {
+      // Удалить из за ненадобности
+      display: none;
+    }
+  }
+
+  &._is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Оболочка ===========================================================================================================
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden; // clip - если используется в проекте position: sticky
+}
+
+.page {
+  position: relative;
+  flex: 1 1 auto;
+
+  [data-observ] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: rem(2);
+    background: transparent;
+    pointer-events: none;
+  }
+
+  &_start {
+    padding-top: rem($headerHeight);
+  }
+}

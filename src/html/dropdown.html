@@ -1,0 +1,234 @@
+<style>
+    .dropbtn {
+        background-color: transparent;
+        background-image: url('./../images/all_icons/icon_dropdown_down.svg');
+        background-repeat: no-repeat;
+        background-position: center right;
+
+        font-size: 14px;
+        line-height: 100%;
+        color: #303030;
+
+        padding: 15px;
+
+
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropbtn:hover,
+    .dropbtn:focus {
+        background-image: url('./../images/all_icons/icon_dropdown_up.svg');
+    }
+
+    .dropbtn img{
+        margin-right: 10px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+
+        background: #FFFFFF;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+
+        width: 197px;
+
+        overflow: auto;
+        z-index: 3;
+    }
+
+    .dropdown-content a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        color: #303030;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 100%;
+
+        width: 100%;
+
+        padding: 9px 24px;
+        
+    }
+
+    .dropdown-content a:first-child{
+        margin-top: 24px;
+    }
+
+    .dropdown-content a:last-child{
+        margin-bottom: 24px;
+    }
+
+    .dropdown a:hover {
+        background-color: #FAFAFA;
+    }
+
+    .show {
+        display: block;
+    }
+</style>
+
+
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn" id="button">
+        <img src="./../images/all_icons/icon_city.svg" alt="icon_city">
+        Санкт-Петербург
+    </button>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="#sbp">Санкт-Петербург
+            <img src="./../images/all_icons/icon_choose_city.svg" alt="icon_choose_city">
+        </a>
+        <a href="#moscow">Москва</a>
+        <a href="#nn">Нижний Новгород</a>
+        <a href="#rostov">Ростов-на-Дону</a>
+    </div>
+</div>
+
+<script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
+
+<!-- <style>
+    .dropbtn-full {
+        background-color: transparent;
+        background-image: url('./../images/all_icons/icon_dropdown_down.svg');
+        background-repeat: no-repeat;
+        background-position: center right;
+
+        font-size: 14px;
+        line-height: 100%;
+        color: #303030;
+
+        padding: 15px;
+
+
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropbtn-full:hover,
+    .dropbtn-full:focus {
+        background-image: url('./../images/all_icons/icon_dropdown_up.svg');
+    }
+
+    .dropbtn-full img{
+        margin-right: 10px;
+    }
+
+    .dropdown-full {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content-full {
+        display: none;
+        position: absolute;
+
+        background: #FFFFFF;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+
+        width: 197px;
+
+        overflow: auto;
+        z-index: 3;
+    }
+
+    .dropdown-content-full a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        color: #303030;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 100%;
+
+        width: 100%;
+
+        padding: 9px 24px;
+        
+    }
+
+    .dropdown-content-full a:first-child{
+        margin-top: 24px;
+    }
+
+    .dropdown-content-full a:last-child{
+        margin-bottom: 24px;
+    }
+
+    .dropdown-full a:hover {
+        background-color: #FAFAFA;
+    }
+
+    .show {
+        display: block;
+    }
+</style>
+
+
+<div class="dropdown dropdown-full">
+    <button onclick="myFunctionFull()" class="dropbtn-full" id="button_full">
+        <img src="./../images/all_icons/icon_city.svg" alt="icon_city">
+        Санкт-Петербург
+    </button>
+    <div id="myDropdown_full" class="dropdown-content-full">
+        <a href="#sbp">Санкт-Петербург
+            <img src="./../images/all_icons/icon_choose_city.svg" alt="icon_choose_city">
+        </a>
+        <a href="#moscow">Москва</a>
+        <a href="#nn">Нижний Новгород</a>
+        <a href="#rostov">Ростов-на-Дону</a>
+    </div>
+</div>
+
+<script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunctionFull() {
+        document.getElementById("myDropdown_full").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+
+        if (!event.target.matches('.dropbtn-full')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content-full");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script> -->

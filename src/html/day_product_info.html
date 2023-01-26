@@ -1,0 +1,165 @@
+<section class="product-info-wrapper">
+    <div class="product-info-container">
+        <div class="product-info-container__rate">
+            <img src="./../images/all_icons/icon_stars.svg" alt="stars" class="rate__stars">
+            <p class="rate__number">4,2</p>
+        </div>
+
+        <div class="product-info-container__product-title">
+            <h3 class="product-title__title">Кольцо из золота с бриллиантами</h3>
+            <p class="product-title__code">Артикул: 1012076</p>
+        </div>
+
+        <div class="product-info-container__price-container">
+            <div class="price-container__sale-price-text">
+                <p class="sale-price-text__price-text">22 000 ₽</p>
+                <p class="sale-price-text__old-price">22 000 ₽</p>
+                <p class="sale-price-text__discount-percent">-45%</p>
+            </div>
+
+            <div class="price-container__time-counter">
+                <div class="timer" id="timer">
+                    <div class="timer-value">
+                        <p class="timer-value_number" id="days"></p>
+                        <p class="timer-value__text">дней</p>
+                    </div>
+                    <span class="timer-dots"> : </span>
+                    <div class="timer-value">
+                        <p class="timer-value_number" id="hours"></p>
+                        <p class="timer-value__text">часов</p>
+                    </div>
+                    <span class="timer-dots"> : </span>
+                    <div class="timer-value">
+                        <p class="timer-value_number" id="minutes"></p>
+                        <p class="timer-value__text">минут</p>
+                    </div>
+                    <span class="timer-dots"> : </span>
+                    <div class="timer-value">
+                        <p class="timer-value_number" id="seconds"></p>
+                        <p class="timer-value__text">секунд</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-info-container__color">
+            <p class="color__title">цвет</p>
+
+            <div class="color__color-circles">
+                <button type="button" class="color-circles__circle">
+                    <div class="circle circle--silver"></div>
+                </button>
+                <button type="button" class="color-circles__circle">
+                    <div class="circle circle--gold"></div>
+                </button>
+                <button type="button" class="color-circles__circle">
+                    <div class="circle circle--orange"></div>
+                </button>
+                <button type="button" class="color-circles__circle" disabled>
+                    <div class="circle circle--green"></div>
+                </button>
+            </div>
+        </div>
+
+        <div class="product-info-container__size">
+            <div class="title-box__hint hint-window" id="hintW">
+                <p class="hint-window__text" id="hintT">Также как существующая теория напрямую зависит от экономической
+                    целесообразности принимаемых решений.</p>
+
+                <div class="hint-window__angle"></div>
+            </div>
+
+            <div class="size__title-box">
+                <p class="title-box__title">Размер</p>
+                <button class="title-box__hint" onclick="openHint()">?</button>
+            </div>
+
+
+
+            <div class="size__size-boxes">
+                <button class="size-boxes__size-box">16,5</button>
+                <button class="size-boxes__size-box">17,5</button>
+                <button class="size-boxes__size-box">18,5</button>
+                <button class="size-boxes__size-box">19</button>
+                <button class="size-boxes__size-box">19,5</button>
+                <button class="size-boxes__size-box">19,5</button>
+                <button class="size-boxes__size-box">18,5</button>
+                <button class="size-boxes__size-box">19</button>
+                <button class="size-boxes__size-box size-box--disabled" disabled>19,5</button>
+                <button class="size-boxes__size-box size-box--disabled" disabled>19,5</button>
+            </div>
+
+        </div>
+
+        <div class="product-info-container__buttons">
+            <div class="buttons__buy-buttons">
+                <button class="buy-buttons__cart">в корзину</button>
+                <button class="buy-buttons__one-click">купить в 1 клик</button>
+            </div>
+
+            <div class="buttons__icon-buttons">
+                <div class="icon-buttons button-save">
+                    <a href="#" class="button-wrapper">
+                        <img src="./../images/all_icons/icon_heart_normal.svg" alt="icon_save"
+                            class="button-img button-save__img">
+                        <p class="button-text button-save__text">Сохранить</p>
+                    </a>
+                </div>
+                <div class="icon-buttons button-chart">
+                    <a href="#" class="button-wrapper">
+                        <img src="./../images/all_icons/icon_product_day_chart.svg" alt="icon_chart"
+                            class="button-img button-chart__img">
+                        <p class="button-text button-chart__text">Сравнить</p>
+                    </a>
+                </div>
+                <div class="icon-buttons button-share">
+                    <a href="#" class="button-wrapper">
+                        <img src="./../images/all_icons/icon_share.svg" alt="icon_share"
+                            class="button-img button-share__img">
+                        <p class="button-text button-share__text">Поделиться</p>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Mar 5, 2023 15:37:25").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        let d = document.getElementById("days").innerHTML = days;
+        let h = document.getElementById("hours").innerHTML = hours;
+        let m = document.getElementById("minutes").innerHTML = minutes;
+        let s = document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+
+
+    //hint window open
+    function openHint() {
+        document.getElementById('hintW').classList.toggle('active');
+        document.getElementById('hintT').classList.toggle('active');
+    }
+</script>

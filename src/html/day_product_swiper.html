@@ -1,0 +1,144 @@
+<style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-img {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        max-width: 550px;
+        width: 100%;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .product-img img {
+        display: block;
+        max-width: 550px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-button-next::after, 
+    .swiper-button-prev::after {
+       width: 0;
+       display: none;
+    }
+
+    .product-img-button-right,
+    .product-img-button-left {
+           background-color: transparent;
+           border: 0;
+           padding: 20px;
+           width: 10px;
+           height: 10px;
+        }
+
+    .prduct-img-Swiper{
+        max-width: 550px;
+        width: 100%;
+         --swiper-theme-color: #303030;
+    }
+
+    @media screen and (max-width: 1300px){
+        .product-img img {
+            width: 450px;
+        }
+    }
+    @media screen and (max-width: 1200px){
+        .product-img{
+            width: 400px;
+        }
+        .product-img img {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width: 1050px){
+        .product-img{
+            width: 350px;
+        }
+        .product-img img {
+            width: 350px;
+        }
+    }
+    @media screen and (max-width: 900px){
+        .product-img{
+            width: 550px !important;
+        }
+        .product-img img {
+            width: 500px !important;
+        }
+    }
+    @media screen and (max-width: 700px){
+        .product-img{
+            max-width: 400px !important;
+        }
+        .product-img img {
+            width: 300px !important;
+        }
+    }
+    @media screen and (max-width: 450px){
+        .product-img{
+            max-width: 300px !important;
+        }
+        .product-img img {
+            width: 250px !important;
+        }
+    }
+
+</style>
+    <!-- Swiper -->
+    <div class="swiper prduct-img-Swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide product-img">
+                <img src="./../images/product_day/day_ring.png" alt="day_ring"  srcset="./../images/product_day/day_ring.png 1x,
+                ./../images/product_day/day_ring@2x.png 2x,
+                ./../images/product_day/day_ring@3x.png 3x">
+            </div>
+            <div class="swiper-slide product-img">
+                <img src="./../images/product_day/day_ring.png" alt="day_ring"  srcset="./../images/product_day/day_ring.png 1x,
+                ./../images/product_day/day_ring@2x.png 2x,
+                ./../images/product_day/day_ring@3x.png 3x">
+            </div>
+            <div class="swiper-slide product-img">
+                <img src="./../images/product_day/day_ring.png" alt="day_ring"  srcset="./../images/product_day/day_ring.png 1x,
+                ./../images/product_day/day_ring@2x.png 2x,
+                ./../images/product_day/day_ring@3x.png 3x">
+            </div>
+        </div>
+        <div class="swiper-button-next product-img-right">
+            <button class="product-img-button-right">&#62;</button>
+        </div>
+        <div class="swiper-button-prev product-img-left">
+            <button class="product-img-button-left">&#60;</button>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".prduct-img-Swiper", {
+            navigation: {
+                nextEl: ".product-img-right",
+                prevEl: ".product-img-left",
+            },
+            slidesPerView: 1,
+        });
+    </script>

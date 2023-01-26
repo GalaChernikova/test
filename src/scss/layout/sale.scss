@@ -1,0 +1,203 @@
+%flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+%flex-center-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+.sale-container {
+    @extend %flex-col;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto 120px;
+
+    @media screen and (max-width: 1300px) {
+        max-width: 1100px;
+    }
+
+    @media screen and (max-width: 1100px) {
+        max-width: 900px;
+    }
+    @media screen and (max-width: 900px) {
+        max-width: 750px;
+        margin: 0 auto 40px;
+    }
+    @media screen and (max-width: 800px) {
+        max-width: 650px;
+    }
+    @media screen and (max-width: 700px) {
+        max-width: 550px;
+    }
+    @media screen and (max-width: 550px) {
+        max-width: 450px;
+    }
+    @media screen and (max-width: 450px) {
+        max-width: 300px;
+    }
+
+    .sale-container__sale-buttons {
+        @extend %flex-center-between;
+        gap: 10px;
+
+        margin-bottom: 36px;
+        max-width: 460px;
+        width: 100%;
+        
+        background-color: transparent;
+
+        @media screen and (max-width: 1300px) {
+            margin-left: 20px;
+        }
+        @media screen and (max-width: 1100px) {
+            margin-left: 0px;
+        }
+        @media screen and (max-width: 900px) {
+            margin: 0 auto 20px;  
+        }
+        @media screen and (max-width: 900px) {
+            flex-wrap: wrap; 
+        }
+
+        &:hover,
+        &:focus {
+            background-color: transparent !important;
+        }
+
+        .sale-btn {
+            padding: 13px 30px;
+            background: #F0F0F0;
+            border-radius: 21px !important;
+
+            font-size: 14px;
+            line-height: 100%;
+            color: #303030;
+            border: none;
+
+            &:hover {
+                background: #DDDDDD !important;
+            }
+
+            &:focus {
+                background: #303030 !important;
+                color: #FFFFFF !important;
+                border: none !important;
+            }
+        }
+
+    }
+
+    .sale-swiper-arrow-right {
+        position: relative;
+        bottom: 200px;
+        
+    }
+
+    .sale-swiper-arrow-left {
+        position: relative;
+        bottom: 200px;
+        left: 1155px;
+
+        @media screen and (max-width: 1300px) {
+            left: 955px;
+        }
+
+        @media screen and (max-width: 1100px) {
+            left: 755px;
+        }
+    }
+
+    .item-slide__all-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+
+        .item-slide__sale-mark {
+            margin-bottom: 0;
+            padding: 4px 11px;
+
+            background: #5B8A8F;
+            border-radius: 15px;
+            font-weight: 500;
+            font-size: 13px;
+            line-height: 100%;
+            color: #FFFFFF;
+        }
+
+        .item-slide__buttons {
+            @extend %flex-col;
+
+        }
+
+        &.not-sale {
+            justify-content: flex-end;
+        }
+
+    }
+
+    .item-slide__price {
+        @extend %flex-col;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .item-slide__price-text {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 100%;
+        }
+
+        .item-slide__item-name {
+            font-size: 14px;
+            line-height: 160%;
+            text-align: start;
+        }
+
+        .item-slide__sale-price-text {
+            @extend %flex-center-between;
+
+            .item-slide__old-price {
+                font-size: 14px;
+                line-height: 100%;
+                text-decoration-line: line-through;
+                color: #8F8F8F;
+
+                margin-left: 8px;
+            }
+
+            .item-slide__discount-percent {
+                background: #E24B33;
+                border-radius: 15px;
+
+                padding: 4px 8px;
+
+                font-weight: 500;
+                font-size: 13px;
+                line-height: 100%;
+                color: #FFFFFF;
+
+                margin-left: auto;
+            }
+        }
+    }
+
+    .item-slide__buttons {
+
+        #heart,
+        #eye {
+            width: 24px;
+            height: 24px;
+        }
+
+        #heart {
+            margin-bottom: 15px;
+        }
+    }
+
+
+}

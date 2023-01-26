@@ -1,0 +1,81 @@
+<style>
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .item-slide {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+
+    max-width: 265px;
+    width: 100%;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .item-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    max-width: 200px;
+    margin: 0 auto 70px
+  }
+
+  .item-pagination {
+    --swiper-theme-color: #303030;
+
+  }
+</style>
+
+<!-- Swiper -->
+<div class="swiper sale-item-1-Swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide item-slide">
+      <img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png 1x,
+        ./../images/sale_ring_1/sale_ring_1@2x.png 2x,
+        ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1">
+    </div>
+    <div class="swiper-slide item-slide">
+      <img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png 1x,
+        ./../images/sale_ring_1/sale_ring_1@2x.png 2x,
+        ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1">
+    </div>
+    <div class="swiper-slide item-slide">
+      <img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png 1x,
+        ./../images/sale_ring_1/sale_ring_1@2x.png 2x,
+        ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1">
+    </div>
+  </div>
+  <div class="swiper-pagination item-pagination"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".sale-item-1-Swiper", {
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+</script>

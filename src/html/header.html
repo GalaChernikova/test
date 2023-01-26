@@ -1,0 +1,92 @@
+<header class="header">
+  <div class="header__container">
+    @@include('mobile_nav.html', {})
+    <nav class="header__container header-nav nav-container">
+      <div class="header-nav__main-nav nav-list">
+
+        <div class="dropdown">
+          @@include('dropdown.html', {})
+        </div>
+
+        <div class="main-nav__tel">
+          <img src="./../images/all_icons/icon_tel.svg" alt="tel_icon" class="tel_icon">
+          <a href="tel:8-800-785-25-35" class="tel_number">
+            8 800 785-25-35
+          </a>
+        </div>
+
+        <div class="main-nav__logo">
+          <a class="logo__logo-link-wrapper" href="./../index.html">
+            <img src="./../images/all_icons/logo.svg" alt="logo" class="logo__logo-img">
+          </a>
+        </div>
+
+        <div class="main-nav__profile-menu">
+          <ul class="profile-menu__profile-link-list">
+            <li class="profile-link-list__item"><a href="#" class="menu__link">Вход</a></li>
+            <li class="profile-link-list__item">|</li>
+            <li class="profile-link-list__item"><a href="#" class="menu__link">Регистрация</a></li>
+          </ul>
+        </div>
+
+        <div class="main-nav__icons-menu">
+          <ul class="icons-menu__icons-menu-list">
+
+            <li class="icons-menu-list__icon-menu-item icon-menu-item__favorite">
+              <a href="#">
+                <p class="icon-menu-item__favorite-total">23</p>
+                <img src="./../images/all_icons/icon_favorite.svg" alt="favorite"
+                  class="icon-menu-item__img img-favourite">
+
+              </a>
+            </li>
+            <li class="icons-menu-list__icon-menu-item">
+              <a href="#">
+                <img src="./../images/all_icons/icon_chart.svg" alt="chart" class="icon-menu-item__img">
+              </a>
+            </li>
+            <li class="icons-menu-list__icon-menu-item">
+              <a href="#">
+                <img src="./../images/all_icons/icon_bag.svg" alt="cart" class="icon-menu-item__img">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+      <div class="header-nav__link-nav nav-list">
+        <ul class="link-nav__link-nav-list">
+          <li class="link-nav-list__link-item link--active"><a href="#">КАТАЛОГ</a></li>
+          <li class="link-nav-list__link-item"><a href="#">АКЦИИ</a></li>
+          <li class="link-nav-list__link-item"><a href="#">БРЕНДЫ</a></li>
+          <li class="link-nav-list__link-item"><a href="#">МАГАЗИНЫ</a></li>
+          <li class="link-nav-list__link-item"><a href="#">О НАС</a></li>
+          <li class="link-nav-list__link-item"><a href="#">ДОСТАВКА И ОПЛАТА</a></li>
+          <li class="link-nav-list__link-item"><a href="#">СТАТЬИ</a></li>
+        </ul>
+
+        <form role="search" class="link-nav__search">
+          <button class="search__search-button" type="submit">
+            <img src="./../images/all_icons/icon_search.svg" alt="icon-search" class="search-button__icon-search">
+          </button>
+          <input type="search" id="search-field" class="search__search-field" placeholder="Поиск по сайту">
+        </form>
+      </div>
+    </nav>
+
+    <div class="header-container-for-mobile">
+      <div class="main-nav__logo">
+        <a class="logo__logo-link-wrapper" href="./../index.html">
+          <img src="./../images/all_icons/logo.svg" alt="logo" class="logo__logo-img">
+        </a>
+      </div>
+    </div>
+
+
+
+    <!-- @@include('./iconMenu.html', {}) -->
+  </div>
+</header>

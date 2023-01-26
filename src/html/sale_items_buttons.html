@@ -1,0 +1,20 @@
+<div class="item-slide__buttons">
+    <img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart"
+        onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg' "
+        onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg' ">
+
+    <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye"
+        onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg' "
+        onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg' ">
+</div>
+
+<script>
+
+    function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };
+</script>

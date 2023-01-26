@@ -1,0 +1,254 @@
+<button class="nav-button">
+    <span class="nav-button-icon"></span>
+</button>
+
+<div class="mobile-nav">
+    <div class="nav">
+
+        <div class="main-nav__tel">
+            <img src="./../images/all_icons/icon_tel.svg" alt="tel_icon" class="tel_icon">
+            <a href="tel:8-800-785-25-35" class="tel_number">
+                8 800 785-25-35
+            </a>
+        </div>
+
+        <div class="main-nav__profile-menu">
+            <ul class="profile-menu__profile-link-list">
+                <li class="profile-link-list__item"><a href="#" class="menu__link">Вход</a></li>
+                <li class="profile-link-list__item">|</li>
+                <li class="profile-link-list__item"><a href="#" class="menu__link">Регистрация</a></li>
+            </ul>
+        </div>
+
+        <div class="header-nav__link-nav nav-list">
+            <ul class="link-nav__link-nav-list">
+                <li class="link-nav-list__link-item link--active"><a href="#">КАТАЛОГ</a></li>
+                <li class="link-nav-list__link-item"><a href="#">АКЦИИ</a></li>
+                <li class="link-nav-list__link-item"><a href="#">БРЕНДЫ</a></li>
+                <li class="link-nav-list__link-item"><a href="#">МАГАЗИНЫ</a></li>
+                <li class="link-nav-list__link-item"><a href="#">О НАС</a></li>
+                <li class="link-nav-list__link-item"><a href="#">ДОСТАВКА И ОПЛАТА</a></li>
+                <li class="link-nav-list__link-item"><a href="#">СТАТЬИ</a></li>
+            </ul>
+
+            <form role="search" class="link-nav__search">
+                <button class="search__search-button" type="submit">
+                    <img src="./../images/all_icons/icon_search.svg" alt="icon-search"
+                        class="search-button__icon-search">
+                </button>
+                <input type="search" id="search-field" class="search__search-field" placeholder="Поиск по сайту">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    //menu
+    const navBtn = document.querySelector(".nav-button");
+    const mobileNav = document.querySelector(".mobile-nav");
+    const body = document.body;
+
+    function toggleMobileNav() {
+        mobileNav.classList.toggle("mobile-nav-active");
+        navBtn.classList.toggle("nav-button-close");
+        body.classList.toggle("no-scroll");
+    }
+
+    navBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        toggleMobileNav();
+    });
+
+    window.addEventListener("click", function () {
+        if (body.classList.contains("no-scroll")) {
+            toggleMobileNav();
+        }
+    });
+
+    mobileNav.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
+
+</script>
+
+<style>
+    /* nav button */
+    .nav-button {
+        position: relative;
+        z-index: 9;
+        display: none;
+        height: 25px;
+        border: none;
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .nav-button:focus,
+    .nav-button:active {
+        outline: none;
+    }
+
+    /* X */
+    .nav-button-close .nav-button-icon {
+        background-color: transparent;
+    }
+
+    .nav-button-close .nav-button-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .nav-button-close .nav-button-icon::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    /* nav icon */
+    .nav-button-icon {
+        display: block;
+        position: relative;
+        background-color: black;
+        width: 18px;
+        height: 2px;
+        border: none;
+    }
+
+    .nav-button-icon::before {
+        position: absolute;
+        left: 0;
+        top: -5px;
+        content: '';
+        display: block;
+        background-color: black;
+        width: 18px;
+        height: 2px;
+    }
+
+    .nav-button-icon::after {
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        content: '';
+        display: block;
+        background-color: black;
+        width: 18px;
+        height: 2px;
+    }
+
+
+    /* mobile nav */
+    .mobile-nav {
+        position: fixed;
+        z-index: 8;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+
+        top: 0;
+        left: 0;
+        width: 320px;
+        height: 100%;
+        background-color: white;
+        opacity: 1;
+        padding: 0 70px 50px 30px;
+    }
+
+    .mobile-nav .nav {
+        display: block;
+        padding-top: 40px !important;
+    }
+
+    .mobile-nav .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mobile-nav .nav ul li {
+        margin: 0;
+        margin-bottom: 25px;
+    }
+
+    .mobile-nav .nav ul li a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .mobile-logo {
+        max-width: 113px;
+        width: 100%;
+
+        margin-bottom: 60px;
+    }
+
+
+
+
+    /* media */
+    @media (max-width: 800px) {
+        .nav-container {
+            display: none;
+        }
+
+        .logo {
+            max-width: 113px;
+        }
+
+        .nav-button {
+            display: block;
+            padding-left: 30px;
+            padding-top: 24px;
+            margin-right: auto;
+        }
+
+        .mobile-nav-active {
+            display: flex;
+        }
+
+
+        .main-nav__tel {
+            margin-bottom: 15px;
+        }
+
+        .tel_icon {
+            margin-right: 10px;
+        }
+
+        .profile-menu__profile-link-list {
+            margin: 0;
+            padding: 0;
+            display: flex !important;
+            flex-direction: row !important;
+            width: 170px;
+            justify-content: space-between;
+
+            margin-bottom: 15px;
+        }
+
+        .profile-link-list__item {
+            margin-bottom: 0 !important;
+        }
+
+        .header-nav__link-nav {
+            flex-direction: column;
+        }
+
+        .link-nav__link-nav-list {
+            padding: 15px !important;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .link-nav-list__link-item {
+            margin-bottom: 15px !important;
+        }
+
+        .link-nav-list__link-item:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .link-nav__search {
+            margin-left: 0 !important;
+            padding: 15px 0 15px 15px;
+        }
+    }
+</style>

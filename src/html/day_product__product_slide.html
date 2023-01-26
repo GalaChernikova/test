@@ -1,0 +1,100 @@
+<div class="product-slide__slide">
+    <div class="product-slide__slide slide-all-buttons-container">
+        <p class="product-slide__new-mark">New</p>
+        <p class="product-slide__hit-mark">Хит</p>
+        <p class="product-slide__sale-mark">Sale</p>
+    </div>
+
+    <div class="product-slide__slide slide-content">
+        @@include('day_product_swiper.html', {})
+        @@include('day_product_info.html', {})
+    </div>
+</div>
+
+
+<style>
+
+    .slide-content {
+        display: flex;
+    }
+
+    .slide-all-buttons-container {
+        display: flex;
+        margin-right: auto;
+
+        width: 158px;
+    }
+
+    .product-slide__sale-mark {
+        background: #5B8A8F;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    .product-slide__new-mark {
+        background: #495159;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    .product-slide__hit-mark {
+        background: #E1A661;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 1300px) {
+        .product-slide__slide {
+            max-width: 1100px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .product-slide__slide {
+            max-width: 1000px;
+        }
+    }
+    @media screen and (max-width: 1050px) {
+        .product-slide__slide {
+            max-width: 900px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .slide-content {
+            flex-direction: column;
+        }    
+        .product-slide__slide {
+            width: 600px;
+        }
+    }
+    @media screen and (max-width: 700px) { 
+        .product-slide__slide {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width: 450px) { 
+        .product-slide__slide {
+            width: 300px;
+        }
+    }
+
+</style>

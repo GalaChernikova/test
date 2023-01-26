@@ -1,0 +1,254 @@
+<section class="sale-wrapper">
+    <div class="sale-container">
+        <h2 class="sale-container__sale-header">Распродажа</h2>
+
+
+        <style>
+            .swiper {
+                width: 100%;
+                height: 100%;
+                padding-top: 24px;
+            }
+
+            .item-box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                text-align: center;
+                font-size: 18px;
+                background: transparent;
+
+                border: 1px solid #F0F0F0;
+
+                max-width: 310px;
+                width: 100%;
+                height: 370px;
+
+                padding: 20px;
+
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+            }
+
+            .item-box img {
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            @media screen and (max-width: 900px) {
+                .swiper.saleSwiper {
+                    padding-top: 15px;
+                }
+
+            }
+        </style>
+
+        <!-- Swiper -->
+        <div class="swiper saleSwiper">
+            <div class="sale-container__sale-buttons">
+                <button class="sale-buttons sale-btn">Кольца</button>
+                <button class="sale-buttons sale-btn">Серьги</button>
+                <button class="sale-buttons sale-btn">Браслеты</button>
+                <button class="sale-buttons sale-btn">Часы</button>
+            </div>
+
+
+            <div class="swiper-wrapper">
+                <div class="swiper-slide item-box">
+                    <div class="item-slide__all-buttons sale">
+                        <p class="item-slide__sale-mark">Sale</p>
+                        @@include('sale_items_buttons.html', {})
+                    </div>
+
+                    @@include('sale_items_swipers/sale_item_1.html', {})
+
+                    <div class="item-slide__price">
+                        <div class="item-slide__sale-price-text">
+                            <p class="item-slide__price-text">41 000 ₽</p>
+                            <p class="item-slide__old-price">65 000 ₽</p>
+                            <p class="item-slide__discount-percent">-45%</p>
+                        </div>
+
+                        <p class="item-slide__item-name">
+                            Стильное кольцо из белого золота c бриллиантами
+                        </p>
+                    </div>
+
+                </div>
+                <div class="swiper-slide item-box">
+                    <div class="item-slide__all-buttons not-sale">
+                        @@include('sale_items_buttons.html', {})
+                    </div>
+
+                    @@include('sale_items_swipers/sale_item_2.html', {})
+
+
+                    <div class="item-slide__price">
+                        <p class="item-slide__price-text">56 000 ₽</p>
+                        <p class="item-slide__item-name">
+                            Стильное кольцо из белого золота c бриллиантами
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide item-box">
+                    <div class="item-slide__all-buttons not-sale">
+                        @@include('sale_items_buttons.html', {})
+                    </div>
+
+                    @@include('sale_items_swipers/sale_item_3.html', {})
+
+
+                    <div class="item-slide__price">
+                        <p class="item-slide__price-text">37 500 ₽</p>
+                        <p class="item-slide__item-name">
+                            Стильное кольцо из белого золота c бриллиантами
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide item-box">
+                    <div class="item-slide__all-buttons not-sale">
+                        @@include('sale_items_buttons.html', {})
+                    </div>
+
+                    @@include('sale_items_swipers/sale_item_4.html', {})
+
+                    <div class="item-slide__price">
+                        <p class="item-slide__price-text">39 200 ₽</p>
+                        <p class="item-slide__item-name">
+                            Стильное кольцо из белого золота c бриллиантами
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide item-box">
+                    <div class="item-slide__all-buttons sale">
+                        <p class="item-slide__sale-mark">Sale</p>
+                        @@include('sale_items_buttons.html', {})
+                    </div>
+
+                    @@include('sale_items_swipers/sale_item_1.html', {})
+
+                    <div class="item-slide__price">
+                        <div class="item-slide__sale-price-text">
+                            <p class="item-slide__price-text">41 000 ₽</p>
+                            <p class="item-slide__old-price">65 000 ₽</p>
+                            <p class="item-slide__discount-percent">-45%</p>
+                        </div>
+
+                        <p class="item-slide__item-name">
+                            Стильное кольцо из белого золота c бриллиантами
+                        </p>
+                    </div>
+
+                </div>
+                <div class="swiper-slide item-box">
+                    <div class="item-slide__all-buttons not-sale">
+                        @@include('sale_items_buttons.html', {})
+                    </div>
+
+                    @@include('sale_items_swipers/sale_item_2.html', {})
+
+
+                    <div class="item-slide__price">
+                        <p class="item-slide__price-text">56 000 ₽</p>
+                        <p class="item-slide__item-name">
+                            Стильное кольцо из белого золота c бриллиантами
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide item-box">
+                    <div class="item-slide__all-buttons not-sale">
+                        @@include('sale_items_buttons.html', {})
+                    </div>
+
+                    @@include('sale_items_swipers/sale_item_3.html', {})
+
+
+                    <div class="item-slide__price">
+                        <p class="item-slide__price-text">37 500 ₽</p>
+                        <p class="item-slide__item-name">
+                            Стильное кольцо из белого золота c бриллиантами
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide item-box">
+                    <div class="item-slide__all-buttons not-sale">
+                        @@include('sale_items_buttons.html', {})
+                    </div>
+
+                    @@include('sale_items_swipers/sale_item_4.html', {})
+
+                    <div class="item-slide__price">
+                        <p class="item-slide__price-text">39 200 ₽</p>
+                        <p class="item-slide__item-name">
+                            Стильное кольцо из белого золота c бриллиантами
+                        </p>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="swiper-button-next sale-arrow-right">
+                <button class="arrow right sale-swiper-arrow-right">&#8594;</button>
+            </div>
+            <div class="swiper-button-prev sale-arrow-left">
+                <button class="arrow left sale-swiper-arrow-left">&#8592;</button>
+            </div>
+
+        </div>
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".saleSwiper", {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                slidesPerGroup: 4,
+                loop: false,
+                loopFillGroupWithBlank: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".sale-arrow-right",
+                    prevEl: ".sale-arrow-left",
+                },
+                breakpoints: {
+                    // mobile + tablet - 320-990
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        slidesPerGroup: 1,
+                    },
+                    // desktop >= 991
+                    991: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                        slidesPerGroup: 4,
+                    }
+                },
+
+            });
+
+        </script>
+
+    </div>
+</section>
