@@ -7,30 +7,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
+
     width: 100%;
-  }
+}
 
 
 //style
 .product-info-container {
     @extend %flex-col;
     width: 650px;
-    
+
     @media screen and (max-width: 1300px) {
         max-width: 600px;
     }
 
     @media screen and (max-width: 1200px) {
-       width: 400px;
+        width: 400px;
     }
+
     @media screen and (max-width: 900px) {
         width: 650px !important;
         margin: 0 auto 40px;
     }
+
     @media screen and (max-width: 700px) {
         max-width: 400px;
     }
+
     @media screen and (max-width: 450px) {
         max-width: 300px;
     }
@@ -66,11 +69,17 @@
             line-height: 100%;
 
             margin-bottom: 20px;
+
             @media screen and (max-width: 1200px) {
                 text-align: start;
             }
+
             @media screen and (max-width: 700px) {
                 font-size: 25px;
+            }
+
+            @media screen and (max-width: 450px) {
+                font-size: 20px;
             }
         }
 
@@ -92,6 +101,7 @@
             flex-direction: column;
             align-items: flex-start;
         }
+
         @media screen and (max-width: 900px) {
             flex-direction: row;
             align-items: center;
@@ -151,13 +161,17 @@
     .price-container__time-counter {
         background: #F5F5F5;
 
-
-
         #timer {
             display: flex;
             align-items: center;
             padding: 12px 14px;
+
+            @media screen and (max-width: 450px) {
+                padding: 10px;
+            }
+
         }
+
 
         .timer-value {
             width: 52px;
@@ -297,7 +311,8 @@
                 font-weight: 500;
                 font-size: 12px;
                 line-height: 100%;
-                &:hover{
+
+                &:hover {
                     background: #D3D3D3;
                 }
             }
@@ -363,11 +378,13 @@
                 justify-content: flex-start !important;
                 gap: 10px;
             }
+
             @media screen and (max-width: 900px) {
                 max-width: 600px;
                 width: 100%;
             }
-            @media screen and (max-width: 700px) {    
+
+            @media screen and (max-width: 700px) {
                 max-width: 400px;
             }
 
@@ -406,15 +423,10 @@
         justify-content: flex-start;
         align-items: flex-start;
 
-        @media screen and (max-width: 1200px) {
-            flex-direction: column;
-        }
+
         @media screen and (max-width: 900px) {
             flex-direction: row;
         }
-        // @media screen and (max-width: 700px) {
-        //     flex-direction: column;
-        // }
 
         .buttons__buy-buttons {
             @extend %flex-col;
@@ -442,16 +454,22 @@
 
                 &:focus {
                     background: #000000;
-                }                
-                
-                @media screen and (max-width: 1200px) {
-                    max-width: 300px;
                 }
+
+                @media screen and (max-width: 1200px) {
+                    max-width: 200px;
+                }
+
                 @media screen and (max-width: 900px) {
                     max-width: 400px;
                 }
+
                 @media screen and (max-width: 700px) {
                     max-width: 200px;
+                }
+
+                @media screen and (max-width: 450px) {
+                    max-width: 150px;
                 }
             }
 
@@ -479,13 +497,19 @@
                 }
 
                 @media screen and (max-width: 1200px) {
-                    max-width: 300px;
+                    max-width: 200px;
                 }
+
                 @media screen and (max-width: 900px) {
                     max-width: 400px;
                 }
+
                 @media screen and (max-width: 700px) {
                     max-width: 200px;
+                }
+
+                @media screen and (max-width: 450px) {
+                    max-width: 150px;
                 }
             }
         }
@@ -498,25 +522,18 @@
 
             margin-left: 40px;
 
-            @media screen and (max-width: 1200px) {
-                margin-top: 20px;
-                margin-left: 0;
-            }
-            @media screen and (max-width: 900px) {
-                margin-top: 0;
-                margin-left: 40px;
-            }
 
-            .icon-buttons{
+            .icon-buttons {
                 margin-bottom: 24px;
             }
+
             .button-wrapper {
                 display: flex;
 
                 max-width: 105px;
                 width: 100%;
             }
-            
+
 
             .button-img {
                 max-width: 20px;

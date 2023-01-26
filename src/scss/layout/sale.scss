@@ -58,10 +58,15 @@
             margin-left: 0px;
         }
         @media screen and (max-width: 900px) {
-            margin: 0 auto 20px;  
+            width: 500px !important; 
+            
         }
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 700px) {
             flex-wrap: wrap; 
+            width: 235px !important;
+        }
+        @media screen and (max-width: 500px) {
+            margin: 0 auto 15px;
         }
 
         &:hover,
@@ -95,6 +100,15 @@
     .sale-swiper-arrow-right {
         position: relative;
         bottom: 200px;
+        @media screen and (max-width: 900px) {
+            visibility: visible;
+        }
+        @media screen and (max-width: 700px) {
+           right: 0;
+        }
+        @media screen and (max-width: 500px) {
+            visibility: hidden;
+         }
         
     }
 
@@ -110,6 +124,19 @@
         @media screen and (max-width: 1100px) {
             left: 755px;
         }
+        @media screen and (max-width: 900px) {
+            visibility: visible;
+            left: 530px;
+        }
+        @media screen and (max-width: 700px) {
+            left: 465px;
+         }
+         @media screen and (max-width: 600px) {
+            left: 365px;
+         }
+         @media screen and (max-width: 500px) {
+            visibility: hidden;
+         }
     }
 
     .item-slide__all-buttons {

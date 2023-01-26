@@ -13,6 +13,10 @@
 
     margin: 0 auto 120px;
 
+    @media screen and (max-width: 900px) {
+        margin-bottom: 40px;
+    }
+
     .product-container__product-header {
         margin-bottom: 40px;
     }
