@@ -53,3 +53,10 @@ gulp.task('default', dev)
 export { dev, build, deployZIP, deployFTP, svgSprive }
 
 
+//deploy
+// var ghpages = require('gh-pages');
+
+// ghpages.publish('dist', function(err) {
+//   branch: 'gh',
+//   repo: 'https://example.com/other/repo.git'
+// }, callback);
