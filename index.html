@@ -1,0 +1,1414 @@
+<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="css/style.min.css?_v=20230126173735"><title>Goldy Store</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css?_v=20230126173735" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css?_v=20230126173735"></head><body><div class="wrapper"><header class="header"><div class="header__container"><button class="nav-button"><span class="nav-button-icon"></span></button><div class="mobile-nav"><div class="nav"><div class="main-nav__tel"><img src="./../images/all_icons/icon_tel.svg" alt="tel_icon" class="tel_icon"> <a href="tel:8-800-785-25-35" class="tel_number">8 800 785-25-35</a></div><div class="main-nav__profile-menu"><ul class="profile-menu__profile-link-list"><li class="profile-link-list__item"><a href="#" class="menu__link">Вход</a></li><li class="profile-link-list__item">|</li><li class="profile-link-list__item"><a href="#" class="menu__link">Регистрация</a></li></ul></div><div class="nav-list header-nav__link-nav"><ul class="link-nav__link-nav-list"><li class="link-nav-list__link-item link--active"><a href="#">КАТАЛОГ</a></li><li class="link-nav-list__link-item"><a href="#">АКЦИИ</a></li><li class="link-nav-list__link-item"><a href="#">БРЕНДЫ</a></li><li class="link-nav-list__link-item"><a href="#">МАГАЗИНЫ</a></li><li class="link-nav-list__link-item"><a href="#">О НАС</a></li><li class="link-nav-list__link-item"><a href="#">ДОСТАВКА И ОПЛАТА</a></li><li class="link-nav-list__link-item"><a href="#">СТАТЬИ</a></li></ul><form role="search" class="link-nav__search"><button class="search__search-button" type="submit"><img src="./../images/all_icons/icon_search.svg" alt="icon-search" class="search-button__icon-search"></button> <input type="search" id="search-field" class="search__search-field" placeholder="Поиск по сайту"></form></div></div></div><script>//menu
+    const navBtn = document.querySelector(".nav-button");
+    const mobileNav = document.querySelector(".mobile-nav");
+    const body = document.body;
+
+    function toggleMobileNav() {
+        mobileNav.classList.toggle("mobile-nav-active");
+        navBtn.classList.toggle("nav-button-close");
+        body.classList.toggle("no-scroll");
+    }
+
+    navBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        toggleMobileNav();
+    });
+
+    window.addEventListener("click", function () {
+        if (body.classList.contains("no-scroll")) {
+            toggleMobileNav();
+        }
+    });
+
+    mobileNav.addEventListener("click", function (event) {
+        event.stopPropagation();
+    });</script><style>/* nav button */
+    .nav-button {
+        position: relative;
+        z-index: 9;
+        display: none;
+        height: 25px;
+        border: none;
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .nav-button:focus,
+    .nav-button:active {
+        outline: none;
+    }
+
+    /* X */
+    .nav-button-close .nav-button-icon {
+        background-color: transparent;
+    }
+
+    .nav-button-close .nav-button-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .nav-button-close .nav-button-icon::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    /* nav icon */
+    .nav-button-icon {
+        display: block;
+        position: relative;
+        background-color: black;
+        width: 18px;
+        height: 2px;
+        border: none;
+    }
+
+    .nav-button-icon::before {
+        position: absolute;
+        left: 0;
+        top: -5px;
+        content: '';
+        display: block;
+        background-color: black;
+        width: 18px;
+        height: 2px;
+    }
+
+    .nav-button-icon::after {
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        content: '';
+        display: block;
+        background-color: black;
+        width: 18px;
+        height: 2px;
+    }
+
+
+    /* mobile nav */
+    .mobile-nav {
+        position: fixed;
+        z-index: 8;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+
+        top: 0;
+        left: 0;
+        width: 320px;
+        height: 100%;
+        background-color: white;
+        opacity: 1;
+        padding: 0 70px 50px 30px;
+    }
+
+    .mobile-nav .nav {
+        display: block;
+        padding-top: 40px !important;
+    }
+
+    .mobile-nav .nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mobile-nav .nav ul li {
+        margin: 0;
+        margin-bottom: 25px;
+    }
+
+    .mobile-nav .nav ul li a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .mobile-logo {
+        max-width: 113px;
+        width: 100%;
+
+        margin-bottom: 60px;
+    }
+
+
+
+
+    /* media */
+    @media (max-width: 800px) {
+        .nav-container {
+            display: none;
+        }
+
+        .logo {
+            max-width: 113px;
+        }
+
+        .nav-button {
+            display: block;
+            padding-left: 30px;
+            padding-top: 24px;
+            margin-right: auto;
+        }
+
+        .mobile-nav-active {
+            display: flex;
+        }
+
+
+        .main-nav__tel {
+            margin-bottom: 15px;
+        }
+
+        .tel_icon {
+            margin-right: 10px;
+        }
+
+        .profile-menu__profile-link-list {
+            margin: 0;
+            padding: 0;
+            display: flex !important;
+            flex-direction: row !important;
+            width: 170px;
+            justify-content: space-between;
+
+            margin-bottom: 15px;
+        }
+
+        .profile-link-list__item {
+            margin-bottom: 0 !important;
+        }
+
+        .header-nav__link-nav {
+            flex-direction: column;
+        }
+
+        .link-nav__link-nav-list {
+            padding: 15px !important;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .link-nav-list__link-item {
+            margin-bottom: 15px !important;
+        }
+
+        .link-nav-list__link-item:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .link-nav__search {
+            margin-left: 0 !important;
+            padding: 15px 0 15px 15px;
+        }
+    }</style><nav class="header__container header-nav nav-container"><div class="nav-list header-nav__main-nav"><div class="dropdown"><style>.dropbtn {
+        background-color: transparent;
+        background-image: url('./../images/all_icons/icon_dropdown_down.svg');
+        background-repeat: no-repeat;
+        background-position: center right;
+
+        font-size: 14px;
+        line-height: 100%;
+        color: #303030;
+
+        padding: 15px;
+
+
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropbtn:hover,
+    .dropbtn:focus {
+        background-image: url('./../images/all_icons/icon_dropdown_up.svg');
+    }
+
+    .dropbtn img{
+        margin-right: 10px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+
+        background: #FFFFFF;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+
+        width: 197px;
+
+        overflow: auto;
+        z-index: 3;
+    }
+
+    .dropdown-content a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        color: #303030;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 100%;
+
+        width: 100%;
+
+        padding: 9px 24px;
+        
+    }
+
+    .dropdown-content a:first-child{
+        margin-top: 24px;
+    }
+
+    .dropdown-content a:last-child{
+        margin-bottom: 24px;
+    }
+
+    .dropdown a:hover {
+        background-color: #FAFAFA;
+    }
+
+    .show {
+        display: block;
+    }</style><div class="dropdown"><button onclick="myFunction()" class="dropbtn" id="button"><img src="./../images/all_icons/icon_city.svg" alt="icon_city"> Санкт-Петербург</button><div id="myDropdown" class="dropdown-content"><a href="#sbp">Санкт-Петербург <img src="./../images/all_icons/icon_choose_city.svg" alt="icon_choose_city"> </a><a href="#moscow">Москва</a> <a href="#nn">Нижний Новгород</a> <a href="#rostov">Ростов-на-Дону</a></div></div><script>/* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }</script></div><div class="main-nav__tel"><img src="./../images/all_icons/icon_tel.svg" alt="tel_icon" class="tel_icon"> <a href="tel:8-800-785-25-35" class="tel_number">8 800 785-25-35</a></div><div class="main-nav__logo"><a class="logo__logo-link-wrapper" href="./../index.html"><img src="./../images/all_icons/logo.svg" alt="logo" class="logo__logo-img"></a></div><div class="main-nav__profile-menu"><ul class="profile-menu__profile-link-list"><li class="profile-link-list__item"><a href="#" class="menu__link">Вход</a></li><li class="profile-link-list__item">|</li><li class="profile-link-list__item"><a href="#" class="menu__link">Регистрация</a></li></ul></div><div class="main-nav__icons-menu"><ul class="icons-menu__icons-menu-list"><li class="icons-menu-list__icon-menu-item icon-menu-item__favorite"><a href="#"><p class="icon-menu-item__favorite-total">23</p><img src="./../images/all_icons/icon_favorite.svg" alt="favorite" class="icon-menu-item__img img-favourite"></a></li><li class="icons-menu-list__icon-menu-item"><a href="#"><img src="./../images/all_icons/icon_chart.svg" alt="chart" class="icon-menu-item__img"></a></li><li class="icons-menu-list__icon-menu-item"><a href="#"><img src="./../images/all_icons/icon_bag.svg" alt="cart" class="icon-menu-item__img"></a></li></ul></div></div><div class="nav-list header-nav__link-nav"><ul class="link-nav__link-nav-list"><li class="link-nav-list__link-item link--active"><a href="#">КАТАЛОГ</a></li><li class="link-nav-list__link-item"><a href="#">АКЦИИ</a></li><li class="link-nav-list__link-item"><a href="#">БРЕНДЫ</a></li><li class="link-nav-list__link-item"><a href="#">МАГАЗИНЫ</a></li><li class="link-nav-list__link-item"><a href="#">О НАС</a></li><li class="link-nav-list__link-item"><a href="#">ДОСТАВКА И ОПЛАТА</a></li><li class="link-nav-list__link-item"><a href="#">СТАТЬИ</a></li></ul><form role="search" class="link-nav__search"><button class="search__search-button" type="submit"><img src="./../images/all_icons/icon_search.svg" alt="icon-search" class="search-button__icon-search"></button> <input type="search" id="search-field" class="search__search-field" placeholder="Поиск по сайту"></form></div></nav><div class="header-container-for-mobile"><div class="main-nav__logo"><a class="logo__logo-link-wrapper" href="./../index.html"><img src="./../images/all_icons/logo.svg" alt="logo" class="logo__logo-img"></a></div></div></div></header><main class="page" id="page"><style>.swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #F8F8F8;
+        background-image: url('./../images/main_backgr/main_backgr.png');
+        background-repeat: no-repeat;
+        background-position: 0 30px;
+        background-size: 50%;
+
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        width: 0;
+        display: none;
+    }
+
+    .mainSwiper {
+        max-width: 1300px;
+        width: 100%;
+
+        margin-top: 20px;
+        --swiper-theme-color: #303030;
+    }
+
+    @media screen and (max-width: 800px) {
+        .mainSwiper {
+            margin-top: 0;
+            padding-top: 10px !important;
+        }
+    }</style><div class="swiper mainSwiper"><div class="swiper-wrapper"><div class="swiper-slide"><div class="main-screen"><div class="main-screen__text"><h3 class="main-screen__text discount-text">Суперскидка до 60%</h3><h1 class="main-screen__text diamonds">НА БРИЛЛИАНТЫ</h1><button class="main-screen__text button">ПОДРОБНЕЕ</button></div><div class="main-screen__img"><img src="./../images/main_ring/main_ring.png" alt="main_ring" class="main-screen__img main-ring" srcset="./../images/main_ring/main_ring.png, ./../images/main_ring/main_ring@2x.png 2x, ./../images/main_ring/main-ring@3x.png 3x,"></div></div></div><div class="swiper-slide"><div class="main-screen"><div class="main-screen__text"><h3 class="main-screen__text discount-text">Суперскидка до 60%</h3><h1 class="main-screen__text diamonds">НА БРИЛЛИАНТЫ</h1><button class="main-screen__text button">ПОДРОБНЕЕ</button></div><div class="main-screen__img"><picture><source srcset="./../images/main_ring/main_ring.webp" type="image/webp"><img src="./../images/main_ring/main_ring.png" alt="main_ring" class="main-screen__img main-ring"></picture></div></div></div><div class="swiper-slide"><div class="main-screen"><div class="main-screen__text"><h3 class="main-screen__text discount-text">Суперскидка до 60%</h3><h1 class="main-screen__text diamonds">НА БРИЛЛИАНТЫ</h1><button class="main-screen__text button">ПОДРОБНЕЕ</button></div><div class="main-screen__img"><picture><source srcset="./../images/main_ring/main_ring.webp" type="image/webp"><img src="./../images/main_ring/main_ring.png" alt="main_ring" class="main-screen__img main-ring"></picture></div></div></div></div><div class="swiper-button-next main-arrow-right"><button class="arrow right">&#8594;</button></div><div class="swiper-button-prev main-arrow-left"><button class="arrow left">&#8592;</button></div><div class="swiper-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".mainSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".main-arrow-right",
+            prevEl: ".main-arrow-left",
+        },
+    });</script><section class="category-wrapper"><div class="category-container"><h2 class="category-container__category-header">Популярные категории</h2><div class="category-container__boxes"><ul class="boxes__boxes-list"><li class="box boxes-list"><a href="#" class="box-link"><img src="./../images/category_rings/rings.png" srcset="./../images/category_rings/rings.png, ./../images/category_rings/rings@2x.png 2x, ./../images/category_rings/rings@3x.png 3x" alt="rings"><p class="boxes-list__category-name">Кольца</p></a></li><li class="box boxes-list"><a href="#" class="box-link"><img src="./../images/category_earrings/earrings.png" srcset="./../images/category_earrings/earrings.png, ./../images/category_earrings/earrings@2x.png 2x, ./../images/category_earrings/earrings@3x.png 3x" alt="earrings"><p class="boxes-list__category-name">Серьги</p></a></li><li class="box boxes-list"><a href="#" class="box-link"><img src="./../images/category_wed_rings/wed_rings.png" srcset="./../images/category_wed_rings/wed_rings.png, ./../images/category_wed_rings/wed_rings@2x.png 2x, ./../images/category_wed_rings/wed_rings@3x.png 3x" alt="wed_rings"><p class="boxes-list__category-name">Помолвочные кольца</p></a></li><li class="box boxes-list"><a href="#" class="box-link"><img src="./../images/category_bracelets/bracelets.png" srcset="./../images/category_bracelets/bracelets.png, ./../images/category_bracelets/bracelets@2x.png 2x, ./../images/category_bracelets/bracelets@3x.png 3x" alt="bracelets"><p class="boxes-list__category-name">Браслеты</p></a></li><li class="box boxes-list"><a href="#" class="box-link"><img src="./../images/category_necklaces/necklaces.png" srcset="./../images/category_necklaces/necklaces.png, ./../images/category_necklaces/necklaces@2x.png 2x, ./../images/category_necklaces/necklaces@3x.png 3x" alt="necklaces"><p class="boxes-list__category-name">Колье и подвески</p></a></li><li class="box boxes-list"><a href="#" class="box-link"><img src="./../images/category_watch/watch.png" srcset="./../images/category_watch/watch.png, ./../images/category_watch/watch@2x.png 2x, ./../images/category_watch/watch@3x.png 3x" alt="watch"><p class="boxes-list__category-name">Часы</p></a></li></ul></div></div></section><section class="sale-wrapper"><div class="sale-container"><h2 class="sale-container__sale-header">Распродажа</h2><style>.swiper {
+                width: 100%;
+                height: 100%;
+                padding-top: 24px;
+            }
+
+            .item-box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                text-align: center;
+                font-size: 18px;
+                background: transparent;
+
+                border: 1px solid #F0F0F0;
+
+                max-width: 310px;
+                width: 100%;
+                height: 370px;
+
+                padding: 20px;
+
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+            }
+
+            .item-box img {
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            @media screen and (max-width: 900px) {
+                .swiper.saleSwiper {
+                    padding-top: 15px;
+                }
+
+            }</style><div class="swiper saleSwiper"><div class="sale-container__sale-buttons"><button class="sale-btn sale-buttons">Кольца</button> <button class="sale-btn sale-buttons">Серьги</button> <button class="sale-btn sale-buttons">Браслеты</button> <button class="sale-btn sale-buttons">Часы</button></div><div class="swiper-wrapper"><div class="swiper-slide item-box"><div class="item-slide__all-buttons sale"><p class="item-slide__sale-mark">Sale</p><div class="item-slide__buttons"><img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart" onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg'"> <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye" onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg'"></div><script>function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };</script></div><style>.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .item-slide {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+
+    max-width: 265px;
+    width: 100%;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .item-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    max-width: 200px;
+    margin: 0 auto 70px
+  }
+
+  .item-pagination {
+    --swiper-theme-color: #303030;
+
+  }</style><div class="swiper sale-item-1-Swiper"><div class="swiper-wrapper"><div class="swiper-slide item-slide"><img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png, ./../images/sale_ring_1/sale_ring_1@2x.png 2x, ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png, ./../images/sale_ring_1/sale_ring_1@2x.png 2x, ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png, ./../images/sale_ring_1/sale_ring_1@2x.png 2x, ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1"></div></div><div class="swiper-pagination item-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".sale-item-1-Swiper", {
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });</script><div class="item-slide__price"><div class="item-slide__sale-price-text"><p class="item-slide__price-text">41 000 ₽</p><p class="item-slide__old-price">65 000 ₽</p><p class="item-slide__discount-percent">-45%</p></div><p class="item-slide__item-name">Стильное кольцо из белого золота c бриллиантами</p></div></div><div class="swiper-slide item-box"><div class="item-slide__all-buttons not-sale"><div class="item-slide__buttons"><img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart" onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg'"> <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye" onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg'"></div><script>function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };</script></div><div class="swiper sale-item-2-Swiper"><div class="swiper-wrapper"><div class="swiper-slide item-slide"><img src="./../images/sale_ring_2/sale_ring_2.png" srcset="./../images/sale_ring_2/sale_ring_2.png, ./../images/sale_ring_2/sale_ring_2@2x.png 2x, ./../images/sale_ring_2/sale_ring_2@3x.png 3x" alt="ring2"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_2/sale_ring_2.png" srcset="./../images/sale_ring_2/sale_ring_2.png, ./../images/sale_ring_2/sale_ring_2@2x.png 2x, ./../images/sale_ring_2/sale_ring_2@3x.png 3x" alt="ring2"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_2/sale_ring_2.png" srcset="./../images/sale_ring_2/sale_ring_2.png, ./../images/sale_ring_2/sale_ring_2@2x.png 2x, ./../images/sale_ring_2/sale_ring_2@3x.png 3x" alt="ring2"></div></div><div class="swiper-pagination item-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".sale-item-2-Swiper", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });</script><div class="item-slide__price"><p class="item-slide__price-text">56 000 ₽</p><p class="item-slide__item-name">Стильное кольцо из белого золота c бриллиантами</p></div></div><div class="swiper-slide item-box"><div class="item-slide__all-buttons not-sale"><div class="item-slide__buttons"><img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart" onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg'"> <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye" onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg'"></div><script>function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };</script></div><div class="swiper sale-item-3-Swiper"><div class="swiper-wrapper"><div class="swiper-slide item-slide"><img src="./../images/sale_ring_3/sale_ring_3.png" srcset="./../images/sale_ring_3/sale_ring_3.png, ./../images/sale_ring_3/sale_ring_3@2x.png 2x, ./../images/sale_ring_3/sale_ring_3@3x.png 3x" alt="ring3"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_3/sale_ring_3.png" srcset="./../images/sale_ring_3/sale_ring_3.png, ./../images/sale_ring_3/sale_ring_3@2x.png 2x, ./../images/sale_ring_3/sale_ring_3@3x.png 3x" alt="ring3"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_3/sale_ring_3.png" srcset="./../images/sale_ring_3/sale_ring_3.png, ./../images/sale_ring_3/sale_ring_3@2x.png 2x, ./../images/sale_ring_3/sale_ring_3@3x.png 3x" alt="ring3"></div></div><div class="swiper-pagination item-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".sale-item-3-Swiper", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });</script><div class="item-slide__price"><p class="item-slide__price-text">37 500 ₽</p><p class="item-slide__item-name">Стильное кольцо из белого золота c бриллиантами</p></div></div><div class="swiper-slide item-box"><div class="item-slide__all-buttons not-sale"><div class="item-slide__buttons"><img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart" onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg'"> <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye" onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg'"></div><script>function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };</script></div><div class="swiper sale-item-4-Swiper"><div class="swiper-wrapper"><div class="swiper-slide item-slide"><img src="./../images/sale_ring_4/sale_ring_4.png" srcset="./../images/sale_ring_4/sale_ring_4.png, ./../images/sale_ring_4/sale_ring_4@2x.png 2x, ./../images/sale_ring_4/sale_ring_4@3x.png 3x" alt="ring1"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_4/sale_ring_4.png" srcset="./../images/sale_ring_4/sale_ring_4.png, ./../images/sale_ring_4/sale_ring_4@2x.png 2x, ./../images/sale_ring_4/sale_ring_4@3x.png 3x" alt="ring1"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_4/sale_ring_4.png" srcset="./../images/sale_ring_4/sale_ring_4.png, ./../images/sale_ring_4/sale_ring_4@2x.png 2x, ./../images/sale_ring_4/sale_ring_4@3x.png 3x" alt="ring1"></div></div><div class="swiper-pagination item-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".sale-item-4-Swiper", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });</script><div class="item-slide__price"><p class="item-slide__price-text">39 200 ₽</p><p class="item-slide__item-name">Стильное кольцо из белого золота c бриллиантами</p></div></div><div class="swiper-slide item-box"><div class="item-slide__all-buttons sale"><p class="item-slide__sale-mark">Sale</p><div class="item-slide__buttons"><img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart" onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg'"> <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye" onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg'"></div><script>function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };</script></div><style>.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .item-slide {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+
+    max-width: 265px;
+    width: 100%;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .item-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    max-width: 200px;
+    margin: 0 auto 70px
+  }
+
+  .item-pagination {
+    --swiper-theme-color: #303030;
+
+  }</style><div class="swiper sale-item-1-Swiper"><div class="swiper-wrapper"><div class="swiper-slide item-slide"><img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png, ./../images/sale_ring_1/sale_ring_1@2x.png 2x, ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png, ./../images/sale_ring_1/sale_ring_1@2x.png 2x, ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_1/sale_ring_1.png" srcset="./../images/sale_ring_1/sale_ring_1.png, ./../images/sale_ring_1/sale_ring_1@2x.png 2x, ./../images/sale_ring_1/sale_ring_1@3x.png 3x" alt="ring1"></div></div><div class="swiper-pagination item-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".sale-item-1-Swiper", {
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });</script><div class="item-slide__price"><div class="item-slide__sale-price-text"><p class="item-slide__price-text">41 000 ₽</p><p class="item-slide__old-price">65 000 ₽</p><p class="item-slide__discount-percent">-45%</p></div><p class="item-slide__item-name">Стильное кольцо из белого золота c бриллиантами</p></div></div><div class="swiper-slide item-box"><div class="item-slide__all-buttons not-sale"><div class="item-slide__buttons"><img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart" onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg'"> <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye" onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg'"></div><script>function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };</script></div><div class="swiper sale-item-2-Swiper"><div class="swiper-wrapper"><div class="swiper-slide item-slide"><img src="./../images/sale_ring_2/sale_ring_2.png" srcset="./../images/sale_ring_2/sale_ring_2.png, ./../images/sale_ring_2/sale_ring_2@2x.png 2x, ./../images/sale_ring_2/sale_ring_2@3x.png 3x" alt="ring2"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_2/sale_ring_2.png" srcset="./../images/sale_ring_2/sale_ring_2.png, ./../images/sale_ring_2/sale_ring_2@2x.png 2x, ./../images/sale_ring_2/sale_ring_2@3x.png 3x" alt="ring2"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_2/sale_ring_2.png" srcset="./../images/sale_ring_2/sale_ring_2.png, ./../images/sale_ring_2/sale_ring_2@2x.png 2x, ./../images/sale_ring_2/sale_ring_2@3x.png 3x" alt="ring2"></div></div><div class="swiper-pagination item-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".sale-item-2-Swiper", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });</script><div class="item-slide__price"><p class="item-slide__price-text">56 000 ₽</p><p class="item-slide__item-name">Стильное кольцо из белого золота c бриллиантами</p></div></div><div class="swiper-slide item-box"><div class="item-slide__all-buttons not-sale"><div class="item-slide__buttons"><img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart" onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg'"> <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye" onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg'"></div><script>function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };</script></div><div class="swiper sale-item-3-Swiper"><div class="swiper-wrapper"><div class="swiper-slide item-slide"><img src="./../images/sale_ring_3/sale_ring_3.png" srcset="./../images/sale_ring_3/sale_ring_3.png, ./../images/sale_ring_3/sale_ring_3@2x.png 2x, ./../images/sale_ring_3/sale_ring_3@3x.png 3x" alt="ring3"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_3/sale_ring_3.png" srcset="./../images/sale_ring_3/sale_ring_3.png, ./../images/sale_ring_3/sale_ring_3@2x.png 2x, ./../images/sale_ring_3/sale_ring_3@3x.png 3x" alt="ring3"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_3/sale_ring_3.png" srcset="./../images/sale_ring_3/sale_ring_3.png, ./../images/sale_ring_3/sale_ring_3@2x.png 2x, ./../images/sale_ring_3/sale_ring_3@3x.png 3x" alt="ring3"></div></div><div class="swiper-pagination item-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".sale-item-3-Swiper", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });</script><div class="item-slide__price"><p class="item-slide__price-text">37 500 ₽</p><p class="item-slide__item-name">Стильное кольцо из белого золота c бриллиантами</p></div></div><div class="swiper-slide item-box"><div class="item-slide__all-buttons not-sale"><div class="item-slide__buttons"><img src="./../images/all_icons/icon_heart_normal.svg" alt="heart" onclick="heart_icon()" id="heart" onmouseover="this.src='./../images/all_icons/icon_heart_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_heart_normal.svg'"> <img src="./../images/all_icons/icon_eye_normal.svg" alt="heart" onclick="eye_icon()" id="eye" onmouseover="this.src='./../images/all_icons/icon_eye_hover.svg'" onmouseout="this.src='./../images/all_icons/icon_eye_normal.svg'"></div><script>function heart_icon() {
+        document.getElementById("heart").src = "./../images/all_icons/icon_heart_pressed.svg";
+    };
+
+    function eye_icon() {
+        document.getElementById("eye").src = "./../images/all_icons/icon_eye_hover.svg";
+    };</script></div><div class="swiper sale-item-4-Swiper"><div class="swiper-wrapper"><div class="swiper-slide item-slide"><img src="./../images/sale_ring_4/sale_ring_4.png" srcset="./../images/sale_ring_4/sale_ring_4.png, ./../images/sale_ring_4/sale_ring_4@2x.png 2x, ./../images/sale_ring_4/sale_ring_4@3x.png 3x" alt="ring1"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_4/sale_ring_4.png" srcset="./../images/sale_ring_4/sale_ring_4.png, ./../images/sale_ring_4/sale_ring_4@2x.png 2x, ./../images/sale_ring_4/sale_ring_4@3x.png 3x" alt="ring1"></div><div class="swiper-slide item-slide"><img src="./../images/sale_ring_4/sale_ring_4.png" srcset="./../images/sale_ring_4/sale_ring_4.png, ./../images/sale_ring_4/sale_ring_4@2x.png 2x, ./../images/sale_ring_4/sale_ring_4@3x.png 3x" alt="ring1"></div></div><div class="swiper-pagination item-pagination"></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".sale-item-4-Swiper", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });</script><div class="item-slide__price"><p class="item-slide__price-text">39 200 ₽</p><p class="item-slide__item-name">Стильное кольцо из белого золота c бриллиантами</p></div></div></div><div class="swiper-button-next sale-arrow-right"><button class="arrow right sale-swiper-arrow-right">&#8594;</button></div><div class="swiper-button-prev sale-arrow-left"><button class="arrow left sale-swiper-arrow-left">&#8592;</button></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".saleSwiper", {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                slidesPerGroup: 4,
+                loop: false,
+                loopFillGroupWithBlank: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".sale-arrow-right",
+                    prevEl: ".sale-arrow-left",
+                },
+                breakpoints: {
+                    // mobile + tablet - 320-990
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        slidesPerGroup: 1,
+                    },
+                    // desktop >= 991
+                    991: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                        slidesPerGroup: 4,
+                    }
+                },
+
+            });</script></div></section><section class="discount-wrapper"><div class="discount-container"><div class="discount-container__boxes"><div class="boxes__disc-box"><div class="disc-box box-text"><span class="box-text__text">Скидки на все украшения с бриллиантами</span> <span class="box-text__text-green">До <span class="percent">-50%</span></span></div><div class="disc-box box-img"><img src="./../images/discount_diamonds/discount_diamonds.png" alt="discount_diamonds" srcset="./../images/discount_diamonds/discount_diamonds.png, ./../images/discount_diamonds/discount_diamonds@2x.png 2x, ./../images/discount_diamonds/discount_diamonds@3x.png 3x" class="box-img__discount-image"></div></div><div class="boxes__disc-box"><div class="disc-box box-text"><span class="box-text__text">Скидки на кольца и браслеты</span> <span class="box-text__text-red">До <span class="percent">-40%</span></span></div><div class="disc-box box-img"><img src="./../images/discount_bracelets/discount_bracelets.png" alt="discount_bracelets" srcset="./../images/discount_bracelets/discount_bracelets.png, ./../images/discount_bracelets/discount_bracelets@2x.png 2x, ./../images/discount_bracelets/discount_bracelets@3x.png 3x" class="box-img__discount-image"></div></div><div class="boxes__disc-box"><div class="disc-box box-text"><span class="box-text__text">снижение цен на обручальные кольца</span> <span class="box-text__text-orange">До <span class="percent">-60%</span></span></div><div class="disc-box box-img"><img src="./../images/discount_wed_rings/discount_wed_rings.png" alt="discount_wed_rings" srcset="./../images/discount_wed_rings/discount_wed_rings.png, ./../images/discount_wed_rings/discount_wed_rings@2x.png 2x, ./../images/discount_wed_rings/discount_wed_rings@3x.png 3x" class="box-img__discount-image"></div></div></div></div></section><section class="product-wrapper"><div class="product-container"><style>.swiper {
+                width: 100%;
+                height: 100%;
+            }
+
+            .product-slide {
+                display: flex;
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+            }
+
+            .product-slide img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .swiper-button-next::after,
+            .swiper-button-prev::after {
+                width: 0;
+                display: none;
+            }
+
+            .product-arrow-right,
+            .product-arrow-left {
+                display: block;
+            }
+
+            .arrow.right.prod-info-right {
+                bottom: 300px;
+                right: 30px;
+            }
+
+            .arrow.left.prod-info-left {
+                bottom: 300px;
+                left: 1150px;
+            }
+
+            @media screen and (max-width: 1300px) {
+                .productSwiper {
+                    width: 1100px !important;
+                }
+
+                .arrow.left.prod-info-left {
+                    left: 950px;
+                }
+            }
+
+            @media screen and (max-width: 1200px) {
+                .productSwiper {
+                    width: 1000px !important;
+                }
+
+                .arrow.left.prod-info-left {
+                    left: 850px;
+                    bottom: 330px;
+                }
+
+                .arrow.right.prod-info-right {
+                    bottom: 330px;
+
+                }
+            }
+
+            @media screen and (max-width: 1050px) {
+                .productSwiper {
+                    width: 900px !important;
+
+                }
+                .arrow.left.prod-info-left {
+                    left: 750px;
+                }
+            }
+
+            @media screen and (max-width: 900px) {
+                .productSwiper {
+                    width: 600px !important;
+
+                }
+                .arrow.left.prod-info-left {
+                    visibility: visible;
+                    bottom: 510px;
+                    left: 450px !important;
+                }
+                .arrow.right.prod-info-right {
+                    visibility: visible;
+                    bottom: 510px;
+                }
+            }
+
+            @media screen and (max-width: 700px) {
+                .productSwiper {
+                    width: 400px !important;
+
+                }
+                .arrow.left.prod-info-left {
+                    bottom: 470px;
+                    left: 285px !important;
+                }
+                .arrow.right.prod-info-right {        
+                    bottom: 470px;
+                }
+            }
+
+            @media screen and (max-width: 450px) {
+                .productSwiper {
+                    width: 300px !important;
+                }
+                .arrow.left.prod-info-left {
+                    bottom: 415px !important;
+                    left: 185px !important;
+                }
+                .arrow.right.prod-info-right {        
+                    bottom: 415px !important;
+                }
+            }</style><div class="swiper productSwiper"><h2 class="product-container__product-header">Товар дня</h2><div class="swiper-wrapper"><div class="swiper-slide product-slide"><div class="product-slide__slide"><div class="product-slide__slide slide-all-buttons-container"><p class="product-slide__new-mark">New</p><p class="product-slide__hit-mark">Хит</p><p class="product-slide__sale-mark">Sale</p></div><div class="product-slide__slide slide-content"><style>.swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-img {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        max-width: 550px;
+        width: 100%;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .product-img img {
+        display: block;
+        max-width: 550px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-button-next::after, 
+    .swiper-button-prev::after {
+       width: 0;
+       display: none;
+    }
+
+    .product-img-button-right,
+    .product-img-button-left {
+           background-color: transparent;
+           border: 0;
+           padding: 20px;
+           width: 10px;
+           height: 10px;
+        }
+
+    .prduct-img-Swiper{
+        max-width: 550px;
+        width: 100%;
+         --swiper-theme-color: #303030;
+    }
+
+    @media screen and (max-width: 1300px){
+        .product-img img {
+            width: 450px;
+        }
+    }
+    @media screen and (max-width: 1200px){
+        .product-img{
+            width: 400px;
+        }
+        .product-img img {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width: 1050px){
+        .product-img{
+            width: 350px;
+        }
+        .product-img img {
+            width: 350px;
+        }
+    }
+    @media screen and (max-width: 900px){
+        .product-img{
+            width: 550px !important;
+        }
+        .product-img img {
+            width: 500px !important;
+        }
+    }
+    @media screen and (max-width: 700px){
+        .product-img{
+            max-width: 400px !important;
+        }
+        .product-img img {
+            width: 300px !important;
+        }
+    }
+    @media screen and (max-width: 450px){
+        .product-img{
+            width: 300px !important;
+        }
+        .product-img img {
+            width: 200px !important;
+        }
+    }</style><div class="swiper prduct-img-Swiper"><div class="swiper-wrapper"><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div></div><div class="swiper-button-next product-img-right"><button class="product-img-button-right">&#62;</button></div><div class="swiper-button-prev product-img-left"><button class="product-img-button-left">&#60;</button></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".prduct-img-Swiper", {
+            navigation: {
+                nextEl: ".product-img-right",
+                prevEl: ".product-img-left",
+            },
+            slidesPerView: 1,
+        });</script><section class="product-info-wrapper"><div class="product-info-container"><div class="product-info-container__rate"><img src="./../images/all_icons/icon_stars.svg" alt="stars" class="rate__stars"><p class="rate__number">4,2</p></div><div class="product-info-container__product-title"><h3 class="product-title__title">Кольцо из золота с бриллиантами</h3><p class="product-title__code">Артикул: 1012076</p></div><div class="product-info-container__price-container"><div class="price-container__sale-price-text"><p class="sale-price-text__price-text">22 000 ₽</p><p class="sale-price-text__old-price">22 000 ₽</p><p class="sale-price-text__discount-percent">-45%</p></div><div class="price-container__time-counter"><div class="timer" id="timer"><div class="timer-value"><p class="timer-value_number" id="days"></p><p class="timer-value__text">дней</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="hours"></p><p class="timer-value__text">часов</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="minutes"></p><p class="timer-value__text">минут</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="seconds"></p><p class="timer-value__text">секунд</p></div></div></div></div><div class="product-info-container__color"><p class="color__title">цвет</p><div class="color__color-circles"><button type="button" class="color-circles__circle"><div class="circle circle--silver"></div></button> <button type="button" class="color-circles__circle"><div class="circle circle--gold"></div></button> <button type="button" class="color-circles__circle"><div class="circle circle--orange"></div></button> <button type="button" class="color-circles__circle" disabled="disabled"><div class="circle circle--green"></div></button></div></div><div class="product-info-container__size"><div class="title-box__hint hint-window" id="hintW"><p class="hint-window__text" id="hintT">Также как существующая теория напрямую зависит от экономической целесообразности принимаемых решений.</p><div class="hint-window__angle"></div></div><div class="size__title-box"><p class="title-box__title">Размер</p><button class="title-box__hint" onclick="openHint()">?</button></div><div class="size__size-boxes"><button class="size-boxes__size-box">16,5</button> <button class="size-boxes__size-box">17,5</button> <button class="size-boxes__size-box">18,5</button> <button class="size-boxes__size-box">19</button> <button class="size-boxes__size-box">19,5</button> <button class="size-boxes__size-box">19,5</button> <button class="size-boxes__size-box">18,5</button> <button class="size-boxes__size-box">19</button> <button class="size-boxes__size-box size-box--disabled" disabled="disabled">19,5</button> <button class="size-boxes__size-box size-box--disabled" disabled="disabled">19,5</button></div></div><div class="product-info-container__buttons"><div class="buttons__buy-buttons"><button class="buy-buttons__cart">в корзину</button> <button class="buy-buttons__one-click">купить в 1 клик</button></div><div class="buttons__icon-buttons"><div class="icon-buttons button-save"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_heart_normal.svg" alt="icon_save" class="button-img button-save__img"><p class="button-text button-save__text">Сохранить</p></a></div><div class="icon-buttons button-chart"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_product_day_chart.svg" alt="icon_chart" class="button-img button-chart__img"><p class="button-text button-chart__text">Сравнить</p></a></div><div class="icon-buttons button-share"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_share.svg" alt="icon_share" class="button-img button-share__img"><p class="button-text button-share__text">Поделиться</p></a></div></div></div></div></section><script>// Set the date we're counting down to
+    var countDownDate = new Date("Mar 5, 2023 15:37:25").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        let d = document.getElementById("days").innerHTML = days;
+        let h = document.getElementById("hours").innerHTML = hours;
+        let m = document.getElementById("minutes").innerHTML = minutes;
+        let s = document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+
+
+    //hint window open
+    function openHint() {
+        document.getElementById('hintW').classList.toggle('active');
+        document.getElementById('hintT').classList.toggle('active');
+    }</script></div></div><style>.slide-content {
+        display: flex;
+    }
+
+    .slide-all-buttons-container {
+        display: flex;
+        margin-right: auto;
+
+        width: 158px;
+    }
+
+    .product-slide__sale-mark {
+        background: #5B8A8F;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    .product-slide__new-mark {
+        background: #495159;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    .product-slide__hit-mark {
+        background: #E1A661;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 1300px) {
+        .product-slide__slide {
+            max-width: 1100px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .product-slide__slide {
+            max-width: 1000px;
+        }
+    }
+    @media screen and (max-width: 1050px) {
+        .product-slide__slide {
+            max-width: 900px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .slide-content {
+            flex-direction: column;
+        }    
+        .product-slide__slide {
+            width: 600px;
+        }
+    }
+    @media screen and (max-width: 700px) { 
+        .product-slide__slide {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width: 450px) { 
+        .product-slide__slide {
+            width: 300px;
+        }
+    }</style></div><div class="swiper-slide product-slide"><div class="product-slide__slide"><div class="product-slide__slide slide-all-buttons-container"><p class="product-slide__new-mark">New</p><p class="product-slide__hit-mark">Хит</p><p class="product-slide__sale-mark">Sale</p></div><div class="product-slide__slide slide-content"><style>.swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-img {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        max-width: 550px;
+        width: 100%;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .product-img img {
+        display: block;
+        max-width: 550px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-button-next::after, 
+    .swiper-button-prev::after {
+       width: 0;
+       display: none;
+    }
+
+    .product-img-button-right,
+    .product-img-button-left {
+           background-color: transparent;
+           border: 0;
+           padding: 20px;
+           width: 10px;
+           height: 10px;
+        }
+
+    .prduct-img-Swiper{
+        max-width: 550px;
+        width: 100%;
+         --swiper-theme-color: #303030;
+    }
+
+    @media screen and (max-width: 1300px){
+        .product-img img {
+            width: 450px;
+        }
+    }
+    @media screen and (max-width: 1200px){
+        .product-img{
+            width: 400px;
+        }
+        .product-img img {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width: 1050px){
+        .product-img{
+            width: 350px;
+        }
+        .product-img img {
+            width: 350px;
+        }
+    }
+    @media screen and (max-width: 900px){
+        .product-img{
+            width: 550px !important;
+        }
+        .product-img img {
+            width: 500px !important;
+        }
+    }
+    @media screen and (max-width: 700px){
+        .product-img{
+            max-width: 400px !important;
+        }
+        .product-img img {
+            width: 300px !important;
+        }
+    }
+    @media screen and (max-width: 450px){
+        .product-img{
+            width: 300px !important;
+        }
+        .product-img img {
+            width: 200px !important;
+        }
+    }</style><div class="swiper prduct-img-Swiper"><div class="swiper-wrapper"><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div></div><div class="swiper-button-next product-img-right"><button class="product-img-button-right">&#62;</button></div><div class="swiper-button-prev product-img-left"><button class="product-img-button-left">&#60;</button></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".prduct-img-Swiper", {
+            navigation: {
+                nextEl: ".product-img-right",
+                prevEl: ".product-img-left",
+            },
+            slidesPerView: 1,
+        });</script><section class="product-info-wrapper"><div class="product-info-container"><div class="product-info-container__rate"><img src="./../images/all_icons/icon_stars.svg" alt="stars" class="rate__stars"><p class="rate__number">4,2</p></div><div class="product-info-container__product-title"><h3 class="product-title__title">Кольцо из золота с бриллиантами</h3><p class="product-title__code">Артикул: 1012076</p></div><div class="product-info-container__price-container"><div class="price-container__sale-price-text"><p class="sale-price-text__price-text">22 000 ₽</p><p class="sale-price-text__old-price">22 000 ₽</p><p class="sale-price-text__discount-percent">-45%</p></div><div class="price-container__time-counter"><div class="timer" id="timer"><div class="timer-value"><p class="timer-value_number" id="days"></p><p class="timer-value__text">дней</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="hours"></p><p class="timer-value__text">часов</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="minutes"></p><p class="timer-value__text">минут</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="seconds"></p><p class="timer-value__text">секунд</p></div></div></div></div><div class="product-info-container__color"><p class="color__title">цвет</p><div class="color__color-circles"><button type="button" class="color-circles__circle"><div class="circle circle--silver"></div></button> <button type="button" class="color-circles__circle"><div class="circle circle--gold"></div></button> <button type="button" class="color-circles__circle"><div class="circle circle--orange"></div></button> <button type="button" class="color-circles__circle" disabled="disabled"><div class="circle circle--green"></div></button></div></div><div class="product-info-container__size"><div class="title-box__hint hint-window" id="hintW"><p class="hint-window__text" id="hintT">Также как существующая теория напрямую зависит от экономической целесообразности принимаемых решений.</p><div class="hint-window__angle"></div></div><div class="size__title-box"><p class="title-box__title">Размер</p><button class="title-box__hint" onclick="openHint()">?</button></div><div class="size__size-boxes"><button class="size-boxes__size-box">16,5</button> <button class="size-boxes__size-box">17,5</button> <button class="size-boxes__size-box">18,5</button> <button class="size-boxes__size-box">19</button> <button class="size-boxes__size-box">19,5</button> <button class="size-boxes__size-box">19,5</button> <button class="size-boxes__size-box">18,5</button> <button class="size-boxes__size-box">19</button> <button class="size-boxes__size-box size-box--disabled" disabled="disabled">19,5</button> <button class="size-boxes__size-box size-box--disabled" disabled="disabled">19,5</button></div></div><div class="product-info-container__buttons"><div class="buttons__buy-buttons"><button class="buy-buttons__cart">в корзину</button> <button class="buy-buttons__one-click">купить в 1 клик</button></div><div class="buttons__icon-buttons"><div class="icon-buttons button-save"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_heart_normal.svg" alt="icon_save" class="button-img button-save__img"><p class="button-text button-save__text">Сохранить</p></a></div><div class="icon-buttons button-chart"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_product_day_chart.svg" alt="icon_chart" class="button-img button-chart__img"><p class="button-text button-chart__text">Сравнить</p></a></div><div class="icon-buttons button-share"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_share.svg" alt="icon_share" class="button-img button-share__img"><p class="button-text button-share__text">Поделиться</p></a></div></div></div></div></section><script>// Set the date we're counting down to
+    var countDownDate = new Date("Mar 5, 2023 15:37:25").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        let d = document.getElementById("days").innerHTML = days;
+        let h = document.getElementById("hours").innerHTML = hours;
+        let m = document.getElementById("minutes").innerHTML = minutes;
+        let s = document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+
+
+    //hint window open
+    function openHint() {
+        document.getElementById('hintW').classList.toggle('active');
+        document.getElementById('hintT').classList.toggle('active');
+    }</script></div></div><style>.slide-content {
+        display: flex;
+    }
+
+    .slide-all-buttons-container {
+        display: flex;
+        margin-right: auto;
+
+        width: 158px;
+    }
+
+    .product-slide__sale-mark {
+        background: #5B8A8F;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    .product-slide__new-mark {
+        background: #495159;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    .product-slide__hit-mark {
+        background: #E1A661;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 1300px) {
+        .product-slide__slide {
+            max-width: 1100px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .product-slide__slide {
+            max-width: 1000px;
+        }
+    }
+    @media screen and (max-width: 1050px) {
+        .product-slide__slide {
+            max-width: 900px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .slide-content {
+            flex-direction: column;
+        }    
+        .product-slide__slide {
+            width: 600px;
+        }
+    }
+    @media screen and (max-width: 700px) { 
+        .product-slide__slide {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width: 450px) { 
+        .product-slide__slide {
+            width: 300px;
+        }
+    }</style></div><div class="swiper-slide product-slide"><div class="product-slide__slide"><div class="product-slide__slide slide-all-buttons-container"><p class="product-slide__new-mark">New</p><p class="product-slide__hit-mark">Хит</p><p class="product-slide__sale-mark">Sale</p></div><div class="product-slide__slide slide-content"><style>.swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .product-img {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        max-width: 550px;
+        width: 100%;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .product-img img {
+        display: block;
+        max-width: 550px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-button-next::after, 
+    .swiper-button-prev::after {
+       width: 0;
+       display: none;
+    }
+
+    .product-img-button-right,
+    .product-img-button-left {
+           background-color: transparent;
+           border: 0;
+           padding: 20px;
+           width: 10px;
+           height: 10px;
+        }
+
+    .prduct-img-Swiper{
+        max-width: 550px;
+        width: 100%;
+         --swiper-theme-color: #303030;
+    }
+
+    @media screen and (max-width: 1300px){
+        .product-img img {
+            width: 450px;
+        }
+    }
+    @media screen and (max-width: 1200px){
+        .product-img{
+            width: 400px;
+        }
+        .product-img img {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width: 1050px){
+        .product-img{
+            width: 350px;
+        }
+        .product-img img {
+            width: 350px;
+        }
+    }
+    @media screen and (max-width: 900px){
+        .product-img{
+            width: 550px !important;
+        }
+        .product-img img {
+            width: 500px !important;
+        }
+    }
+    @media screen and (max-width: 700px){
+        .product-img{
+            max-width: 400px !important;
+        }
+        .product-img img {
+            width: 300px !important;
+        }
+    }
+    @media screen and (max-width: 450px){
+        .product-img{
+            width: 300px !important;
+        }
+        .product-img img {
+            width: 200px !important;
+        }
+    }</style><div class="swiper prduct-img-Swiper"><div class="swiper-wrapper"><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div><div class="swiper-slide product-img"><img src="./../images/product_day/day_ring.png" alt="day_ring" srcset="./../images/product_day/day_ring.png, ./../images/product_day/day_ring@2x.png 2x, ./../images/product_day/day_ring@3x.png 3x"></div></div><div class="swiper-button-next product-img-right"><button class="product-img-button-right">&#62;</button></div><div class="swiper-button-prev product-img-left"><button class="product-img-button-left">&#60;</button></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".prduct-img-Swiper", {
+            navigation: {
+                nextEl: ".product-img-right",
+                prevEl: ".product-img-left",
+            },
+            slidesPerView: 1,
+        });</script><section class="product-info-wrapper"><div class="product-info-container"><div class="product-info-container__rate"><img src="./../images/all_icons/icon_stars.svg" alt="stars" class="rate__stars"><p class="rate__number">4,2</p></div><div class="product-info-container__product-title"><h3 class="product-title__title">Кольцо из золота с бриллиантами</h3><p class="product-title__code">Артикул: 1012076</p></div><div class="product-info-container__price-container"><div class="price-container__sale-price-text"><p class="sale-price-text__price-text">22 000 ₽</p><p class="sale-price-text__old-price">22 000 ₽</p><p class="sale-price-text__discount-percent">-45%</p></div><div class="price-container__time-counter"><div class="timer" id="timer"><div class="timer-value"><p class="timer-value_number" id="days"></p><p class="timer-value__text">дней</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="hours"></p><p class="timer-value__text">часов</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="minutes"></p><p class="timer-value__text">минут</p></div><span class="timer-dots">:</span><div class="timer-value"><p class="timer-value_number" id="seconds"></p><p class="timer-value__text">секунд</p></div></div></div></div><div class="product-info-container__color"><p class="color__title">цвет</p><div class="color__color-circles"><button type="button" class="color-circles__circle"><div class="circle circle--silver"></div></button> <button type="button" class="color-circles__circle"><div class="circle circle--gold"></div></button> <button type="button" class="color-circles__circle"><div class="circle circle--orange"></div></button> <button type="button" class="color-circles__circle" disabled="disabled"><div class="circle circle--green"></div></button></div></div><div class="product-info-container__size"><div class="title-box__hint hint-window" id="hintW"><p class="hint-window__text" id="hintT">Также как существующая теория напрямую зависит от экономической целесообразности принимаемых решений.</p><div class="hint-window__angle"></div></div><div class="size__title-box"><p class="title-box__title">Размер</p><button class="title-box__hint" onclick="openHint()">?</button></div><div class="size__size-boxes"><button class="size-boxes__size-box">16,5</button> <button class="size-boxes__size-box">17,5</button> <button class="size-boxes__size-box">18,5</button> <button class="size-boxes__size-box">19</button> <button class="size-boxes__size-box">19,5</button> <button class="size-boxes__size-box">19,5</button> <button class="size-boxes__size-box">18,5</button> <button class="size-boxes__size-box">19</button> <button class="size-boxes__size-box size-box--disabled" disabled="disabled">19,5</button> <button class="size-boxes__size-box size-box--disabled" disabled="disabled">19,5</button></div></div><div class="product-info-container__buttons"><div class="buttons__buy-buttons"><button class="buy-buttons__cart">в корзину</button> <button class="buy-buttons__one-click">купить в 1 клик</button></div><div class="buttons__icon-buttons"><div class="icon-buttons button-save"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_heart_normal.svg" alt="icon_save" class="button-img button-save__img"><p class="button-text button-save__text">Сохранить</p></a></div><div class="icon-buttons button-chart"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_product_day_chart.svg" alt="icon_chart" class="button-img button-chart__img"><p class="button-text button-chart__text">Сравнить</p></a></div><div class="icon-buttons button-share"><a href="#" class="button-wrapper"><img src="./../images/all_icons/icon_share.svg" alt="icon_share" class="button-img button-share__img"><p class="button-text button-share__text">Поделиться</p></a></div></div></div></div></section><script>// Set the date we're counting down to
+    var countDownDate = new Date("Mar 5, 2023 15:37:25").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+        let d = document.getElementById("days").innerHTML = days;
+        let h = document.getElementById("hours").innerHTML = hours;
+        let m = document.getElementById("minutes").innerHTML = minutes;
+        let s = document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("timer").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+
+
+    //hint window open
+    function openHint() {
+        document.getElementById('hintW').classList.toggle('active');
+        document.getElementById('hintT').classList.toggle('active');
+    }</script></div></div><style>.slide-content {
+        display: flex;
+    }
+
+    .slide-all-buttons-container {
+        display: flex;
+        margin-right: auto;
+
+        width: 158px;
+    }
+
+    .product-slide__sale-mark {
+        background: #5B8A8F;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    .product-slide__new-mark {
+        background: #495159;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    .product-slide__hit-mark {
+        background: #E1A661;
+        margin-bottom: 0;
+        margin-right: 4px;
+        padding: 4px 11px;
+        border-radius: 15px;
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 100%;
+        color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 1300px) {
+        .product-slide__slide {
+            max-width: 1100px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .product-slide__slide {
+            max-width: 1000px;
+        }
+    }
+    @media screen and (max-width: 1050px) {
+        .product-slide__slide {
+            max-width: 900px;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        .slide-content {
+            flex-direction: column;
+        }    
+        .product-slide__slide {
+            width: 600px;
+        }
+    }
+    @media screen and (max-width: 700px) { 
+        .product-slide__slide {
+            width: 400px;
+        }
+    }
+    @media screen and (max-width: 450px) { 
+        .product-slide__slide {
+            width: 300px;
+        }
+    }</style></div></div><div class="swiper-button-next product-arrow-right"><button class="arrow right prod-info-right">&#8594;</button></div><div class="swiper-button-prev product-arrow-left"><button class="arrow left prod-info-left">&#8592;</button></div></div><script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js?_v=20230126173735"></script><script>var swiper = new Swiper(".productSwiper", {
+                navigation: {
+                    nextEl: ".product-arrow-right",
+                    prevEl: ".product-arrow-left",
+                },
+            });</script></div></section><section class="articles-wrapper"><div class="articles-container"><div class="articles-container__title"><h2 class="title__articles-header">Статьи</h2><div class="title__title-link"><a href="#" class="title-link__read-more">Читать все <img src="./../images/all_icons/icon_article_arrow.svg" alt="arrow-read-more" class="title-link__arrow-read-more"></a></div></div><div class="articles-container__article-boxes"><div class="article-boxes__article-box"><a href="#" class="article-box__link-wrapper"><img src="./../images/article_trends_wed_rings/trends_wed_rings.png" alt="trends_wed_rings" class="article-box__image" srcset="./../images/article_trends_wed_rings/trends_wed_rings.png, ./../images/article_trends_wed_rings/trends_wed_rings@2x.png 2x, ./../images/article_trends_wed_rings/trends_wed_rings@3x.png 3x"><p class="article-box__date">21 сентября 2021</p><p class="article-box__article-title">Обручальные кольца: тренды 2021</p></a></div><div class="article-boxes__article-box"><a href="#" class="article-box__link-wrapper"><img src="./../images/article_trends_year/trends_year.png" alt="trends_year" class="article-box__image" srcset="./../images/article_trends_year/trends_year.png, ./../images/article_trends_year/trends_year@2x.png 2x, ./../images/article_trends_year/trends_year@3x.png 3x"><p class="article-box__date">25 сентября 2021</p><p class="article-box__article-title">Главные ювелирные тренды года</p></a></div><div class="article-boxes__article-box"><a href="#" class="article-box__link-wrapper"><img src="./../images/article_pearls/pearls.png" alt="pearls" class="article-box__image" srcset="./../images/article_pearls/pearls.png, ./../images/article_pearls/pearls@2x.png 2x, ./../images/article_pearls/pearls@3x.png 3x"><p class="article-box__date">21 сентября 2021</p><p class="article-box__article-title">Жемчуг: 7 малоизвестных фактов о культовом украшении</p></a></div><div class="article-boxes__article-box"><a href="#" class="article-box__link-wrapper"><img src="./../images/article_gold/gold.png" alt="gold" class="article-box__image" srcset="./../images/article_gold/gold.png, ./../images/article_gold/gold@2x.png 2x, ./../images/article_gold/gold@3x.png 3x"><p class="article-box__date">21 сентября 2021</p><p class="article-box__article-title">Как отличить золото от подделки: 10 практических советов</p></a></div></div></div></section><div data-observ></div></main><footer class="footer"><div class="footer__container"></div></footer></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js?_v=20230126173735" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script><script src="js/app.min.js?_v=20230126173735"></script></body></html>
